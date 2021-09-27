@@ -13,7 +13,7 @@ chrome.runtime.onMessage.addListener(
 
                 chrome.runtime.sendMessage({
                     status: 'video_frame',
-                    video_url: video.src,
+                    video_url: video.src.replace("cdn-",""),
                     // course_id: course_id,
                     lecture_name: lecture_name
                 })
