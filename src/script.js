@@ -6,14 +6,14 @@ chrome.runtime.onMessage.addListener(
             // var course_id = getID(document.getElementById('track_form').action)
             var videos = document.getElementsByTagName('video')
             var lecture_name = document.head.querySelector("[name~=title][content]").content
-
+            console.log(videos, lecture_name)
             for (video of videos){
                 if (video.src == '')
                     continue
 
                 chrome.runtime.sendMessage({
                     status: 'video_frame',
-                    video_url: video.src.replace("cdn-",""),
+                    video_url: video.src,
                     // course_id: course_id,
                     lecture_name: lecture_name
                 })
